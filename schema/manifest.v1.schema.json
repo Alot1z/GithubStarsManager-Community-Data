@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GithubStarsManager community dataset manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "generatedAt", "recordCount", "shards"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "recordCount": { "type": "integer", "minimum": 0 },
+    "shards": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["path", "sha256", "records"],
+        "properties": {
+          "path": { "type": "string", "pattern": "^repositories/[0-9a-f]{2}\\.jsonl$" },
+          "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "records": { "type": "integer", "minimum": 1 }
+        }
+      }
+    }
+  }
+}
+
