@@ -1,0 +1,1 @@
+{"name":"githubstarsmanager-community-data","private":false,"type":"module","scripts":{"rebuild":"node scripts/rebuild-index.mjs","validate":"node scripts/validate.mjs"}}
